@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro'
+import type { Lang } from '../i18n/utils'
+
+const lang: Lang = Astro.url.pathname.startsWith('/fr') ? 'fr' : 'en'
+const isFr = lang === 'fr'
+---
+
+<Base
+  title={isFr ? 'Page introuvable — Ruxelion' : 'Page not found — Ruxelion'}
+  description={isFr
+    ? 'La page demandée est introuvable.'
+    : 'The requested page could not be found.'}
+  lang={lang}
+>
+  <main
+    class="flex min-h-screen flex-col items-center justify-center px-6 text-center"
+  >
+    <p class="mb-2 text-sm font-semibold tracking-widest text-blue-400 uppercase">
+      404
+    </p>
+    <h1 class="mb-4 text-4xl font-extrabold text-white md:text-5xl">
+      {isFr ? 'Page introuvable' : 'Page not found'}
+    </h1>
+    <p class="mb-10 max-w-md text-gray-400">
+      {
+        isFr
+          ? "La page que vous recherchez n'existe pas ou a été déplacée."
+          : "The page you're looking for doesn't exist or has been moved."
+      }
+    </p>
+    <a
+      href={isFr ? '/fr/' : '/'}
+      class="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-500"
+    >
+      {isFr ? "Retour à l'accueil" : 'Back to home'}
+    </a>
+  </main>
+</Base>

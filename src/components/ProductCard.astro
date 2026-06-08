@@ -1,0 +1,98 @@
+---
+import type { Lang } from '../i18n/utils'
+import type { TranslationKey } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+  t: (key: TranslationKey) => string
+}
+
+const { lang, t } = Astro.props
+const docsUrl =
+  lang === 'fr'
+    ? 'https://rs-grid.com/fr/getting-started'
+    : 'https://rs-grid.com/getting-started'
+const githubUrl = 'https://github.com/ruxelion/rs-grid'
+
+const stats = [
+  { value: '∞', label: t('product_stat_rows') },
+  { value: '60', unit: 'fps', label: t('product_stat_fps') },
+  { value: 'MIT', label: t('product_stat_license') },
+]
+---
+
+<section id="rs-grid" class="px-6 py-24">
+  <div class="mx-auto max-w-6xl">
+    <p
+      class="mb-4 text-center text-sm font-semibold tracking-widest text-blue-400 uppercase"
+    >
+      {t('product_label')}
+    </p>
+
+    <div
+      class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111827]"
+    >
+      <div class="grid gap-0 md:grid-cols-2">
+        <!-- Content -->
+        <div class="flex flex-col justify-center p-8 md:p-12">
+          <h2
+            class="mb-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl"
+          >
+            {t('product_title')}
+          </h2>
+          <p class="mb-8 text-base leading-relaxed text-gray-400 md:text-lg">
+            {t('product_desc')}
+          </p>
+
+          <!-- Stats -->
+          <div class="mb-8 flex gap-8">
+            {
+              stats.map((stat) => (
+                <div>
+                  <div class="text-2xl font-bold text-white md:text-3xl">
+                    {stat.value}
+                  </div>
+                  <div class="mt-0.5 text-xs text-gray-500">{stat.label}</div>
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-3">
+            <a
+              href={docsUrl}
+              class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('product_cta')}
+            </a>
+            <a
+              href={githubUrl}
+              class="inline-flex items-center gap-2 rounded-lg border border-white/10 px-5 py-2.5 text-sm font-semibold text-gray-300 transition-all hover:border-white/20 hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('product_cta_github')}
+            </a>
+          </div>
+        </div>
+
+        <!-- Preview image -->
+        <div
+          class="flex items-center justify-center border-t border-white/[0.05] bg-[#0d1321] p-6 md:border-t-0 md:border-l md:p-10"
+        >
+          <img
+            src="/images/preview.png"
+            alt="rs-grid data grid preview"
+            class="w-full rounded-xl shadow-2xl shadow-black/50"
+            width="640"
+            height="420"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
