@@ -32,3 +32,6 @@ npm run check    # astro check (type / content validation)
 - No formatter is wired yet. Run `npm run check` before considering a change done.
 - This is the **org** site (ruxelion.com). Product documentation lives in the separate
   `rs-grid-site` repo (rs-grid.com) — do not put API docs here.
+- The `rs-grid` engine repo is **PRIVATE**. This marketing site is **PUBLIC**. Never
+  reference private `rs-grid` repo paths, URLs, internal file names, or unreleased
+  features in copy, commits, or generated output.
