@@ -1,6 +1,6 @@
 ---
-import Base from '../layouts/Base.astro'
 import type { Lang } from '../i18n/utils'
+import Base from '../layouts/Base.astro'
 
 const lang: Lang = Astro.url.pathname.startsWith('/fr') ? 'fr' : 'en'
 const isFr = lang === 'fr'

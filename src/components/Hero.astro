@@ -1,6 +1,5 @@
 ---
-import type { Lang } from '../i18n/utils'
-import type { TranslationKey } from '../i18n/utils'
+import type { Lang, TranslationKey } from '../i18n/utils'
 
 interface Props {
   lang: Lang
@@ -9,7 +8,9 @@ interface Props {
 
 const { lang, t } = Astro.props
 const rsGridUrl =
-  lang === 'fr' ? 'https://rs-grid.com/fr/getting-started' : 'https://rs-grid.com/getting-started'
+  lang === 'fr'
+    ? 'https://rs-grid.com/fr/getting-started'
+    : 'https://rs-grid.com/getting-started'
 ---
 
 <section

@@ -1,6 +1,8 @@
+import type { TranslationKey, Translations } from './en'
 import { en } from './en'
 import { fr } from './fr'
-import type { Translations, TranslationKey } from './en'
+
+export type { TranslationKey, Translations }
 
 export type Lang = 'en' | 'fr'
 

@@ -9,7 +9,12 @@ interface Props {
   ogImage?: string
 }
 
-const { title, description, lang, ogImage = '/images/og-cover.png' } = Astro.props
+const {
+  title,
+  description,
+  lang,
+  ogImage = '/images/og-cover.png',
+} = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const alternateHref =
   lang === 'en' ? new URL('/fr/', Astro.site) : new URL('/', Astro.site)

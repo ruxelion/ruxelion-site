@@ -25,6 +25,9 @@ jobs:
       - name: Astro check
         run: npm run check
 
+      - name: Lint (Biome)
+        run: npm run lint
+
       - name: i18n parity check (src/pages vs src/pages/fr)
         run: npm run check:i18n
 
